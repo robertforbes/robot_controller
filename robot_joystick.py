@@ -16,6 +16,9 @@ if joystick_count > 0:
     js = pygame.joystick.Joystick(0)
     js.init()
 
+    axes = js.get_numaxes()
+    print "axes = ", axes
+    
     # flag to signal completion
     complete = False
 
@@ -30,7 +33,12 @@ if joystick_count > 0:
                 print("Joystick button down.")
             if event.type == pygame.JOYBUTTONUP:
                 print("Joystick button up.")
-                
+        
+        if axes >= 2:
+            axis_0 = js.get_axis(0)
+            axis_1 = js.get_axis(1)
+            # print axis_0, axis_1       
+        
         # Limit the frame rate to 50Hz.
         clock.tick(20)
 else:
