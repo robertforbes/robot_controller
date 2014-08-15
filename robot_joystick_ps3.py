@@ -54,7 +54,7 @@ if joystick_count > 0:
         print left_right, speed
         robot_udp.udp_test(int(speed), int(left_right))
         """ 
-	if axes >= 2:
+        if axes >= 2:
             axis_0 = js.get_axis(0)
             axis_1 = js.get_axis(1)
             print axis_0, axis_1       
