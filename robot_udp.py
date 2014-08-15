@@ -1,11 +1,12 @@
 import socket
 import array
 
-UDP_IP = "127.0.0.1"
+#UDP_IP = "127.0.0.1"
+UDP_IP = "192.168.0.9"
 UDP_PORT = 1995
 
 def udp_test(speed, direction):
-    msg = (array.array('b', [speed,direction])).tostring()
+    msg = (array.array('B', [speed,direction])).tostring()
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.sendto(msg, (UDP_IP, UDP_PORT))
 

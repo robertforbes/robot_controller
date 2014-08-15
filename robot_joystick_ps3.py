@@ -1,4 +1,5 @@
 import pygame
+import robot_udp
     
 pygame.init()
 
@@ -51,6 +52,7 @@ if joystick_count > 0:
         left_right = 127 + round(axis_vals[0] * 127)
         speed = 127 + round(-axis_vals[3] * 127)
         print left_right, speed
+        robot_udp.udp_test(int(speed), int(left_right))
         """ 
 	if axes >= 2:
             axis_0 = js.get_axis(0)
@@ -58,7 +60,7 @@ if joystick_count > 0:
             print axis_0, axis_1       
         """
         # Limit the frame rate to 50Hz.
-        clock.tick(20)
+        # clock.tick(20)
 else:
     print "No joysticks found."
 
